@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sea Theme Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #1e90ff, #00bfff);
+            background-image: url('https://images.unsplash.com/photo-1614665454353-13faf5c78f5a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        body {
+            background-image: url('https://images.pexels.com/photos/457881/pexels-photo-457881.jpeg?auto=compress&cs=tinysrgb&w=600');
+            background-size: cover;
+            background-position: center;
+        } 
+        
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            margin: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        .container h2 {
+            color: #1e90ff;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1e90ff;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #1e90ff;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #0066cc;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        button {
+            width: 100%;
+            padding: 0.8rem;
+            background: #1e90ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            background: #0066cc;
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            animation: ripple 1s ease-out;
+        }
+
+        @keyframes ripple {
+            from {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 1;
+            }
+            to {
+                transform: translate(-50%, -50%) scale(2);
+                opacity: 0;
+            }
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .remember-me input {
+            margin-right: 0.5rem;
+        }
+
+        .remember-me label {
+            color: #1e90ff;
+        }
+
+        .social-login {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .social-login a {
+            color: #1e90ff;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-login a:hover {
+            color: #0066cc;
+            transform: translateY(-2px);
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .forgot-password a {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .form-group input {
+                padding: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+  
+    <div class="container">
+        <h2>🌊⛵ Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username or Email</label>
+                <input type="text" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit">Login</button>
+            <div class="remember-me">
+                <input type="checkbox" id="remember">
+                <label for="remember">Remember Me</label>
+            </div>
+        </form>
+        <div class="social-login">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-google"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="forgot-password">
+            <a href="#">Forgot Password?</a>
+        </div>
+        <p style="text-align: center; margin-top: 1rem;">Don't have an account? <a href="#" style="color: #1e90ff;">Create Account</a></p>
+    </div>
+
+    <script>
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        
+        usernameInput.addEventListener('input', function() {
+            if (this.value.includes('@')) {
+                this.setAttribute('placeholder', 'Email');
+            } else {
+                this.setAttribute('placeholder', 'Username');
+            }
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Login form submitted!');
+        });
+    </script>
+</body>
+</html>
